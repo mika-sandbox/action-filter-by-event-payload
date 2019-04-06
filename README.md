@@ -24,12 +24,12 @@ You have to pass three arguments.
 
 ## Usage
 
-When success CI checks on master branch, deploy project using GitHub Actions.
+When commit sender is equals to repository owner on master branch, print message "Hello, World".
 
 ```hcl
 workflow "New workflow" {
-  on = "status"
-  resolves = ["Deploy to fly.io"]
+  on = "push"
+  resolves = ["print message 'Hello, World'"]
 }
 
 action "Run only master branch" {
@@ -37,15 +37,15 @@ action "Run only master branch" {
   args = "branch master"
 }
 
-action "Success CI checks" {
+action "Check commit sender is repository owner" {
   uses = "mika-f/action-filter-by-payload@master"
   needs = ["Run only master branch"]
-  args = "state eq success"
+  args = "sender.login eq mika-f"
 }
 
-action "Deploy to fly.io" {
-  uses = "mika-f/action-deploy-to-flyio@master"
-  needs = ["Success CI checks"]
-  secrets = ["FLY_ACCESS_TOKEN"]
+action "print message 'Hello, World'" {
+  uses = "actions/bin/sh@master"
+  needs = ["Check commit sender is repository owner"]
+  args = ["echo 'Hello, World'"]
 }
 ```
