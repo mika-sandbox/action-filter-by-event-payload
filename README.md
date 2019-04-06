@@ -1,4 +1,4 @@
-# action-filter-by-payload
+# action-filter-by-event-payload
 
 GitHub Action that filter by event payload.
 
@@ -38,7 +38,7 @@ action "Run only master branch" {
 }
 
 action "Check commit sender is repository owner" {
-  uses = "mika-f/action-filter-by-payload@master"
+  uses = "mika-f/action-filter-by-event-payload@master"
   needs = ["Run only master branch"]
   args = "sender.login eq mika-f"
 }

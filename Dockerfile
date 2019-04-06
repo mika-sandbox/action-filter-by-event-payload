@@ -2,8 +2,8 @@ FROM alpine:latest
 
 LABEL name="Filter by Event Payload"
 LABEL version="0.1.0"
-LABEL repository="http://github.com/mika-f/action-filter-by-payload"
-LABEL homepage="http://github.com/mika-f/action-filter-by-payload"
+LABEL repository="http://github.com/mika-f/action-filter-by-event-payload"
+LABEL homepage="http://github.com/mika-f/action-filter-by-event-payload"
 LABEL maintainer="Fuyuno Mikazuki <mikazuki_fuyuno@outlook.com>"
 
 LABEL com.github.actions.name="Filter by Event Payload"
