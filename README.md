@@ -8,7 +8,7 @@ You have to pass three arguments.
 
 1. Path of the JSON property (e.g. `commit.committer.login`)
 2. Relational Operator (one of [`eq`, `ne`, `gt`, `lt` `ge`, `le`, `gr`])
-3. Value for comparing (constant value or JSON path)
+3. Value for comparing (constant value, e.g. `mika-f`, `1234567890`)
 
 ### Relational Operator
 
